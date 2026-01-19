@@ -1,0 +1,23 @@
+@font-face {
+	font-family: 'Normalidad';
+	src: url('/fonts/Normalidad.otf') format('opentype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+$font-base: 'Normalidad', sans-serif;
+
+$color-orange: #ff5100;
+$color-green: #02aa03;
+$color-yellow: #f6d214;
+$color-blue: #0986eb;
+$color-red: #ff0038;
+$color-pink: #ff85c0;
+$color-purple: #924cd6;
+
+$bg-orange-light: #ffe7db;
+$bg-gray-light: #efefef;
+
+$text-secondary: #878787;
+$bg-secondary: #fbfaf8;

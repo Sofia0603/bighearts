@@ -1,0 +1,17 @@
+@use '/src/scss/base/variables' as *;
+
+
+.main {
+	border: 1px solid #efefef;
+	border-radius: 56px;
+	padding: 16px 32px 24px 16px;
+	background-color: $bg-secondary;
+	margin: 8px;
+	flex: 1;
+
+	&__inner{
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 32px;
+	}
+}

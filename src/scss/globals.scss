@@ -1,0 +1,19 @@
+@use '/src/scss/base/mixins';
+@use '/src/scss/base/variables' as *;
+@use '/src/scss/base/reset';
+@use '/src/scss/base/media';
+
+@use '/src/scss/components/sidebar';
+@use '/src/scss/components/main';
+
+
+body{
+	font-family: $font-base;
+	font-size: 14px;
+	background-color: #fff;
+}
+
+.wrapper{
+	display: flex;
+	
+}

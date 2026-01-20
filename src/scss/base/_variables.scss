@@ -1,12 +1,14 @@
+@use "/src/scss/base/mixins" as *;
+
 @font-face {
-	font-family: 'Normalidad';
-	src: url('/fonts/Normalidad.otf') format('opentype');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Normalidad";
+  src: url("/fonts/Normalidad.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-$font-base: 'Normalidad', sans-serif;
+$font-base: "Normalidad", sans-serif;
 
 $color-orange: #ff5100;
 $color-green: #02aa03;
@@ -15,9 +17,67 @@ $color-blue: #0986eb;
 $color-red: #ff0038;
 $color-pink: #ff85c0;
 $color-purple: #924cd6;
+$color-gray: #a3a3a3;
 
 $bg-orange-light: #ffe7db;
 $bg-gray-light: #efefef;
+$bg-secondary: #fbfaf8;
 
 $text-secondary: #878787;
-$bg-secondary: #fbfaf8;
+
+$color-light-green: #dcf3dc;
+$color-light-yelow: #fef9de;
+$color-light-red: #ffdbe3;
+$color-light-gray: #efefef;
+$color-light-pink: #ffeef6;
+
+.status {
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 26px;
+  padding: 9px 12px 8px 12px;
+  font-size: 12px;
+	line-height: 1;
+	
+
+
+  &--approved {
+    color: $color-green;
+    background-color: $color-light-green;
+  }
+
+  &--pending {
+    color: $color-yellow;
+    background-color: $color-light-yelow;
+  }
+
+  &--rejected {
+    color: $color-red;
+    background-color: $color-light-red;
+  }
+
+  &--done {
+    color: #fff;
+    background-color: $color-green;
+  }
+
+  &--draft {
+    color: #fff;
+    background-color: $color-gray;
+  }
+}
+
+.application__icon {
+  @include flex-center;
+
+  border-radius: 100px;
+  width: 32px;
+  height: 32px;
+
+  &--blue {
+    background-color: #ddeefc;
+  }
+  &--pink {
+    background-color: $color-light-pink;
+  }
+}

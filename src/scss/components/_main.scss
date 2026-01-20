@@ -1,17 +1,532 @@
-@use '/src/scss/base/variables' as *;
+@use "/src/scss/base/variables" as *;
+@use "/src/scss/base/mixins" as *;
+@use "/src/scss/base/media" as *;
 
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  min-height: 100vh;
+  overflow-x: hidden;
+  height: 100%;
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.header {
+  display: none;
+  padding: 12px 20px;
+
+  @include tablet {
+    display: flex;
+  }
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &__actions {
+    @include flex-center;
+    gap: 8px;
+
+    &-link {
+      @include flex-center;
+      border-radius: 100%;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      background: $bg-gray-light;
+    }
+    &-button {
+      @include flex-center;
+      border-radius: 100%;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      background: $bg-orange-light;
+    }
+
+    &--notification {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: $color-red;
+        width: 10px;
+        height: 10px;
+        top: 2px;
+        right: 2px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
 
 .main {
-	border: 1px solid #efefef;
-	border-radius: 56px;
-	padding: 16px 32px 24px 16px;
-	background-color: $bg-secondary;
-	margin: 8px;
-	flex: 1;
+  border: 1px solid #efefef;
+  border-radius: 56px;
+  padding: 16px 32px 24px 16px;
+  background-color: $bg-secondary;
+  margin: 8px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 32px;
 
-	&__inner{
-		display: grid;
-		grid-template-columns: 2fr 1fr;
-		gap: 32px;
-	}
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  @media (max-width: 1867px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include tablet {
+    border-radius: unset;
+    margin: 0px;
+    padding: 20px;
+    border: none;
+  }
+}
+
+.hero {
+  border: 1px solid #efefef;
+  border-radius: 40px 40px 48px 48px;
+  padding: 16px;
+  background: #fff;
+
+  &__top {
+    @include flex-center;
+    justify-content: space-between;
+    padding: 0 16px;
+    margin-bottom: 23px;
+
+    @include tablet {
+      padding: 0;
+    }
+  }
+  &__user {
+    @include flex-center;
+    gap: 12px;
+    &-avatar {
+      overflow: hidden;
+
+      img {
+        border-radius: 1000px;
+        width: 40px;
+        height: 40px;
+				 overflow: hidden;
+        object-fit: contain;
+      }
+    }
+    &-name {
+      color: #535862;
+    }
+  }
+
+  &__location {
+    @include flex-center;
+    gap: 8px;
+
+    &-wrapper {
+      @include flex-center;
+      gap: 8px;
+    }
+    &-title {
+      color: #535862;
+
+      @include mobile {
+        display: none;
+      }
+    }
+    &-name {
+      color: #181d27;
+      @include mobile {
+        color: $text-secondary;
+      }
+    }
+    &-icon {
+      @include flex-center;
+      justify-content: center;
+      border-radius: 100px;
+      padding: 8px;
+      width: 36px;
+      height: 36px;
+      background-color: $bg-gray-light;
+
+      @include mobile {
+        width: 20px;
+        height: 20px;
+        padding: 6px;
+      }
+    }
+  }
+  @include tablet {
+    border-radius: unset;
+    border: none;
+    padding: 0;
+    background: none;
+  }
+}
+
+.assistance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+
+  &__item {
+    border-radius: 32px;
+    padding: 8px;
+    background-color: $bg-orange-light;
+    color: #fff;
+    min-width: 335px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &--wrapper {
+      display: grid;
+      grid-template-columns: minmax(106px, 187px) minmax(106px, 187px) minmax(
+          106px,
+          187px
+        );
+      gap: 12px;
+
+      @include mobile {
+        gap: 8px;
+      }
+    }
+
+    &--small {
+      border-radius: 32px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 187px;
+      min-height: 234px;
+      min-width: unset;
+
+      .assistance__wrapper {
+        margin-top: auto;
+        padding: 16px;
+        background-color: #fff;
+        border-radius: 8px 8px 24px 24px;
+
+        width: 100%;
+        @include mobile {
+          padding: 8px 4px;
+          border-radius: 4px 4px 12px 12px;
+        }
+      }
+      .assistance__item-image {
+        width: 120px;
+        height: 80px;
+        margin-top: 20px;
+
+        &--circle {
+          width: 132px;
+          height: 132px;
+          border-radius: 50%;
+          overflow: hidden;
+
+          margin-top: 4px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          @include mobile {
+            width: 90px;
+            height: 90px;
+          }
+        }
+        @include mobile {
+          width: 90px;
+          height: 50px;
+        }
+      }
+      .assistance__name {
+        color: $text-secondary;
+        font-size: 14px;
+        transition: color 0.3s ease;
+        @include desktop {
+          font-size: 10px;
+        }
+      }
+
+      &:hover {
+        .assistance__name {
+          color: $color-orange;
+        }
+      }
+
+      @include desktop {
+        & {
+          min-height: unset;
+        }
+      }
+      @include mobile {
+        border-radius: 16px;
+        flex: 1;
+        padding: 4px;
+      }
+    }
+
+    &--orange {
+      background-color: $bg-orange-light;
+    }
+    &--pink {
+      background-color: $color-pink;
+    }
+    &--blue {
+      background-color: $color-blue;
+    }
+  }
+  &__inner {
+    border-radius: 26px;
+    padding: 24px;
+    gap: 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-orange;
+    @include mobile {
+      padding: 20px;
+    }
+  }
+  &__name {
+    font-size: 20px;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    &-item {
+      @include flex-center;
+      backdrop-filter: blur(24px);
+      background: rgba(255, 255, 255, 0.24);
+      border-radius: 100px;
+      padding: 8px 16px;
+    }
+  }
+
+  &__link {
+    width: max-content;
+    color: #faeee8ab;
+  }
+
+  @include desktop {
+    & {
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.applications {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 32px;
+
+    @include tablet {
+      padding: 0;
+    }
+  }
+
+  &__types {
+    @include flex-center;
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 32px;
+    gap: 4px;
+    overflow-x: auto;
+    width: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &-button {
+      border-radius: 100px;
+      padding: 8px 16px;
+      color: #535862;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+
+      &:hover {
+        background-color: $bg-gray-light;
+      }
+
+      &--active {
+        background-color: $bg-gray-light;
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include tablet {
+      margin-right: -20px;
+      margin-left: 0;
+      width: 100%;
+    }
+    @include mobile {
+      justify-content: flex-start;
+      gap: 0;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 385px);
+    gap: 12px;
+    margin-left: 20px;
+
+    .application {
+      display: flex;
+      flex-direction: column;
+      border: 4px solid #efefef;
+      border-radius: 32px;
+      padding: 11px;
+      background-color: #fff;
+      transition: border-color 0.3s ease;
+
+      &:hover {
+        border-color: $color-orange;
+      }
+      &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      &__name {
+        font-size: 16px;
+        color: #181d27;
+        margin-bottom: 34px;
+        padding-left: 10px;
+
+        @include mobile {
+          margin-bottom: 22px;
+        }
+      }
+      &__actions {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+      &__button {
+        max-width: max-content;
+        margin-left: 6px;
+
+        &:first-child {
+          display: none;
+        }
+
+        @include mobile {
+          &:first-child {
+            display: flex;
+          }
+        }
+      }
+
+      &--pink {
+        background-color: #ffc2df;
+        border: 4px solid #ffeef6;
+        justify-content: space-between;
+
+        .application__name {
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 1;
+          margin-top: 13px;
+          color: $color-red;
+          margin-bottom: 40px;
+        }
+
+        .application__button {
+          margin-left: 0;
+        }
+
+        &:hover {
+          border-color: $color-pink;
+        }
+      }
+    }
+
+    @include tablet {
+      & {
+        margin-left: 0;
+      }
+    }
+    @include mobile {
+      grid-template-columns: repeat(auto-fill, 335px);
+    }
+  }
+
+  @include tablet {
+    & {
+      padding: 0;
+      margin-left: 0;
+    }
+  }
+  @include mobile {
+    gap: 20px;
+  }
+}
+
+.events {
+  margin-top: 24px;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+  }
+  &__link {
+    flex: 0 0 auto;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.footer {
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  color: $text-secondary;
+
+  &-link {
+    transition: color 0.3s ease;
+    width: max-content;
+    &:hover {
+      color: $color-orange;
+    }
+  }
+  &-text {
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.5;
+  }
+
+  @include mobile {
+    display: flex;
+  }
 }

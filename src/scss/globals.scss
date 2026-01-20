@@ -1,4 +1,4 @@
-@use "/src/scss/base/mixins";
+@use "/src/scss/base/mixins" as *;
 @use "/src/scss/base/variables" as *;
 @use "/src/scss/base/reset";
 @use "/src/scss/base/media"  as* ;
@@ -39,7 +39,7 @@ body {
 
 .section-title {
   font-size: 20px;
-  color: #181d27;
+  color: $text-primary;
   font-weight: 400;
 }
 
@@ -81,5 +81,57 @@ body {
       background-color: $color-orange;
       color: #fff;
     }
+  }
+}
+
+
+.status {
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 26px;
+  padding: 9px 12px 8px 12px;
+  font-size: 12px;
+	line-height: 1;
+	
+
+
+  &--approved {
+    color: $color-green;
+    background-color: $color-light-green;
+  }
+
+  &--pending {
+    color: $color-yellow;
+    background-color: $color-light-yelow;
+  }
+
+  &--rejected {
+    color: $color-red;
+    background-color: $color-light-red;
+  }
+
+  &--done {
+    color: #fff;
+    background-color: $color-green;
+  }
+
+  &--draft {
+    color: #fff;
+    background-color: $color-gray;
+  }
+}
+
+.application__icon {
+  @include flex-center;
+
+  border-radius: 100px;
+  width: 32px;
+  height: 32px;
+
+  &--blue {
+    background-color: #ddeefc;
+  }
+  &--pink {
+    background-color: $color-light-pink;
   }
 }

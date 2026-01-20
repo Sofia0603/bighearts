@@ -52,11 +52,11 @@
       &::after {
         content: "";
         position: absolute;
-        background-color: $color-red;
-        width: 10px;
-        height: 10px;
-        top: 2px;
-        right: 2px;
+        background-color: #ff0038;
+        width: 8px;
+        height: 8px;
+        top: 4px;
+        right: 6px;
         border-radius: 50%;
       }
     }
@@ -78,6 +78,10 @@
     display: flex;
     flex-direction: column;
     gap: 44px;
+
+    @include mobile {
+      gap: 52px;
+    }
   }
 
   @media (max-width: 1867px) {
@@ -90,6 +94,9 @@
     margin: 0px;
     padding: 20px;
     border: none;
+  }
+  @include mobile {
+    padding: 17px 20px 20px 20px;
   }
 }
 
@@ -108,6 +115,9 @@
     @include tablet {
       padding: 0;
     }
+    @include mobile {
+      margin-bottom: 27px;
+    }
   }
   &__user {
     @include flex-center;
@@ -119,7 +129,7 @@
         border-radius: 1000px;
         width: 40px;
         height: 40px;
-				 overflow: hidden;
+        overflow: hidden;
         object-fit: contain;
       }
     }
@@ -144,7 +154,7 @@
       }
     }
     &-name {
-      color: #181d27;
+      color: $text-primary;
       @include mobile {
         color: $text-secondary;
       }
@@ -190,10 +200,7 @@
 
     &--wrapper {
       display: grid;
-      grid-template-columns: minmax(106px, 187px) minmax(106px, 187px) minmax(
-          106px,
-          187px
-        );
+      grid-template-columns: minmax(106px, 187px) minmax(106px, 187px) minmax(106px, 187px);
       gap: 12px;
 
       @include mobile {
@@ -241,11 +248,13 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transform: scale(1.5);
+            transform-origin: center;
           }
 
           @include mobile {
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
           }
         }
         @include mobile {
@@ -257,7 +266,7 @@
         color: $text-secondary;
         font-size: 14px;
         transition: color 0.3s ease;
-        @include desktop {
+        @include mobile {
           font-size: 10px;
         }
       }
@@ -289,6 +298,10 @@
     &--blue {
       background-color: $color-blue;
     }
+
+    @include mobile {
+      gap: 8px;
+    }
   }
   &__inner {
     border-radius: 26px;
@@ -299,6 +312,7 @@
     background-color: $color-orange;
     @include mobile {
       padding: 20px;
+      gap: 20px;
     }
   }
   &__name {
@@ -315,6 +329,14 @@
       background: rgba(255, 255, 255, 0.24);
       border-radius: 100px;
       padding: 8px 16px;
+      @include mobile {
+        &:nth-child(4) {
+          display: none;
+        }
+        &:nth-child(5) {
+          display: none;
+        }
+      }
     }
   }
 
@@ -324,11 +346,12 @@
   }
 
   @include desktop {
-    & {
-      display: flex;
-      flex-direction: column-reverse;
-      flex-wrap: wrap;
-    }
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+  }
+  @include mobile {
+    gap: 19px;
   }
 }
 
@@ -344,7 +367,7 @@
     padding: 0 32px;
 
     @include tablet {
-      padding: 0;
+      padding: 0 0 0 5px;
     }
   }
 
@@ -381,8 +404,11 @@
 
     @include tablet {
       margin-right: -20px;
-      margin-left: 0;
-      width: 100%;
+      margin-left: -20px;
+      padding-left: 20px;
+      padding-right: 40px;
+      margin-top: 4px;
+      width: 120%;
     }
     @include mobile {
       justify-content: flex-start;
@@ -401,7 +427,7 @@
       flex-direction: column;
       border: 4px solid #efefef;
       border-radius: 32px;
-      padding: 11px;
+      padding: 11px 11px 20px 14px;
       background-color: #fff;
       transition: border-color 0.3s ease;
 
@@ -416,7 +442,7 @@
       }
       &__name {
         font-size: 16px;
-        color: #181d27;
+        color: $text-primary;
         margin-bottom: 34px;
         padding-left: 10px;
 
@@ -465,6 +491,11 @@
         &:hover {
           border-color: $color-pink;
         }
+      }
+
+      @include mobile {
+        border-radius: 24px;
+        padding: 11px;
       }
     }
 

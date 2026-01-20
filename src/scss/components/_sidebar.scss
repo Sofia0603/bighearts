@@ -99,12 +99,11 @@
     }
   }
 
-  @include tablet{
-    &{
+  @include tablet {
+    & {
       display: none;
     }
   }
-
 }
 
 .info {
@@ -168,12 +167,24 @@
       align-items: center;
       background-color: $bg-gray-light;
       border-radius: 50%;
+      transition: background-color 0.3s ease;
+      svg path {
+        transition: fill 0.3s ease;
+      }
     }
     &-text {
       color: $text-secondary;
-      transition: color 0.2s ease;
+      transition: color 0.3s ease;
+    }
 
-      &:hover {
+    &:hover {
+      .info__warning-icon {
+        background-color: $bg-orange-light;
+        svg path {
+          fill: $color-orange;
+        }
+      }
+      .info__warning-text {
         color: $color-orange;
       }
     }

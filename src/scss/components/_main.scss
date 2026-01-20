@@ -141,7 +141,10 @@
   &__location {
     @include flex-center;
     gap: 8px;
-
+    padding: 8px 8px 8px 24px;
+    background-color: $bg-secondary;
+    border-radius: 32px;
+    cursor: pointer;
     &-wrapper {
       @include flex-center;
       gap: 8px;
@@ -155,6 +158,7 @@
     }
     &-name {
       color: $text-primary;
+      transition: color 0.3s ease;
       @include mobile {
         color: $text-secondary;
       }
@@ -167,6 +171,11 @@
       width: 36px;
       height: 36px;
       background-color: $bg-gray-light;
+      transition: background-color 0.3s ease;
+
+      svg path {
+        transition: fill 0.3s ease;
+      }
 
       @include mobile {
         width: 20px;
@@ -174,7 +183,22 @@
         padding: 6px;
       }
     }
+
+    &:hover{
+      .hero__location-name{
+        color: $color-orange;
+      }
+      .hero__location-icon{
+        background-color: $bg-orange-light;
+      }
+      svg path{
+        fill: $color-orange;
+      }
+    }
+
   }
+
+
   @include tablet {
     border-radius: unset;
     border: none;
